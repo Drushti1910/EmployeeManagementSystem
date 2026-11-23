@@ -1,0 +1,15 @@
+CREATE DATABASE IF NOT EXISTS employee_management;
+USE employee_management;
+
+CREATE TABLE IF NOT EXISTS employees (
+    id INT UNSIGNED NOT NULL AUTO_INCREMENT,
+    name VARCHAR(120) NOT NULL,
+    email VARCHAR(254) NOT NULL,
+    department VARCHAR(120) NOT NULL,
+    salary DECIMAL(12, 2) NOT NULL,
+    created_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
+        ON UPDATE CURRENT_TIMESTAMP,
+    PRIMARY KEY (id),
+    UNIQUE KEY uq_employees_email (email)
+);
